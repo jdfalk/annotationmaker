@@ -92,7 +92,7 @@ func main() {
 					fmt.Printf("Now processing: %s\n", project)
 					u.SetAnnotations(map[string]string{
 						"managed-by": "argocd.argoproj.io",
-						"project":    string(value)})
+						"project":    project})
 					_, err := clientset.CoreV1().Secrets(*namespace).Update(context.TODO(), &u, upOpts)
 					if err != nil {
 						panic(err.Error())
